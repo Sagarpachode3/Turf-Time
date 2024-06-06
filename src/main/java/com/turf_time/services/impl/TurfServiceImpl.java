@@ -10,13 +10,13 @@ import com.turf_time.dtos.TurfDto;
 import com.turf_time.entities.Turf;
 import com.turf_time.exceptions.ResourceNotFoundException;
 import com.turf_time.repositories.TurfRepository;
-import com.turf_time.services.TurfServices;
+import com.turf_time.services.TurfService;
 
 import jakarta.transaction.Transactional;
 
-@Service
+@Service("turfService")
 @Transactional
-public class TurfServiceImpl implements TurfServices {
+public class TurfServiceImpl implements TurfService {
 
 	private TurfRepository turfRepository;
 	private ModelMapper modelMapper;
@@ -29,7 +29,7 @@ public class TurfServiceImpl implements TurfServices {
 	}
 
 	@Override
-	public TurfDto createTurf(TurfDto turfDto) {
+	public TurfDto registerTurf(TurfDto turfDto) {
 		Turf turf = modelMapper.map(turfDto, Turf.class);
 		Turf savedTurf = turfRepository.save(turf);
 		return modelMapper.map(savedTurf, TurfDto.class);

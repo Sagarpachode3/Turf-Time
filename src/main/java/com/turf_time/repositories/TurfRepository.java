@@ -12,6 +12,8 @@ public interface TurfRepository extends JpaRepository<Turf, Integer> {
     
     List<Turf> findByCountry(String country);
     
+    List<Turf> findByState(String state);
+    
     List<Turf> findByDistrict(String district);
     
     List<Turf> findByTahsil(String tahsil);
