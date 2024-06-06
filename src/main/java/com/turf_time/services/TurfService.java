@@ -4,9 +4,9 @@ import java.util.List;
 
 import com.turf_time.dtos.TurfDto;
 
-public interface TurfServices {
+public interface TurfService {
 
-	TurfDto createTurf(TurfDto turfDto);
+	TurfDto registerTurf(TurfDto turfDto);
 	
 	TurfDto updateTurf(TurfDto turfDto, Integer turfId);
 	

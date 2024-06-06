@@ -4,6 +4,7 @@ import java.time.LocalTime;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,6 +38,7 @@ public class TurfDto {
     private String localAddress;
 
     @NotNull(message = "Price per hour is required")
+    @Positive(message = "Price per hour must be positive")
     private Double pricePerHour;
 
     @NotNull(message = "Available from time is required")
@@ -45,6 +47,7 @@ public class TurfDto {
     @NotNull(message = "Available to time is required")
     private LocalTime availableTo;
 
+    @NotNull(message = "Availability status is mandatory")
     private boolean isAvailable;
 
     private String features;
@@ -52,5 +55,8 @@ public class TurfDto {
     private String type;
 
     private String size;
+    
+    @NotNull(message = "Manager ID is mandatory")
+    private Integer managerId;
 
 }
