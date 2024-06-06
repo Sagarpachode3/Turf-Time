@@ -1,5 +1,7 @@
 package com.turf_time.dtos;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.validation.constraints.Email;
@@ -44,5 +46,7 @@ public class UserDto {
 	message = "Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.")
 	@JsonIgnore
 	private String password;
+	
+	private List<BookingDto> bookings;
 
 }

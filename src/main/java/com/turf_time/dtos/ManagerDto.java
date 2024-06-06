@@ -29,7 +29,7 @@ public class ManagerDto {
 	@Size(min = 8, max = 16, message = "Password length must be between 8 - 16 charecters.")
 	@Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,16}$", 
 	message = "Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.")
-	@JsonIgnore
+	//@JsonIgnore
     private String password;
 
     @NotBlank(message = "Email is mandatory")
@@ -41,6 +41,7 @@ public class ManagerDto {
 	@Pattern(regexp = "\\d{10}", message = "Please enter a valid 10-digit contact number")
 	private String contactNumber;
 
+    @NotNull(message = "Please choose your status of operation.")
     private boolean isActive;
 
     private List<TurfDto> turfs;
