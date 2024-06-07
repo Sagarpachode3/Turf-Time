@@ -8,7 +8,7 @@ import com.turf_time.entities.Turf;
 
 public interface TurfRepository extends JpaRepository<Turf, Integer> {
 
-    List<Turf> findByTurfName(String turfName);
+    List<Turf> findByTurfNameContaining(String turfName);
     
     List<Turf> findByCountry(String country);
     

@@ -100,39 +100,53 @@ public class ManagerServiceImpl implements ManagerService {
 	public TurfDto updateTurfDetails(Integer managerId, Integer turfId, TurfDto turfDto) {
 		Turf turf = turfRepository.findById(turfId)
 				.orElseThrow(() -> new ResourceNotFoundException("Turf", "turf Id", turfId));
-		
-		if(turf.getManager().getManagerId().equals(managerId)) {
+
+		if (turf.getManager().getManagerId().equals(managerId)) {
 			throw new UnauthorizedAccessException("You are not authorized to update this turf.");
 		}
-		
+
 		turf.setTurfName(turfDto.getTurfName());
-	    turf.setCountry(turfDto.getCountry());
-	    turf.setState(turfDto.getState());
-	    turf.setDistrict(turfDto.getDistrict());
-	    turf.setTahsil(turfDto.getTahsil());
-	    turf.setCity(turfDto.getCity());
-	    turf.setLocalAddress(turfDto.getLocalAddress());
-	    turf.setPricePerHour(turfDto.getPricePerHour());
-	    turf.setAvailableFrom(turfDto.getAvailableFrom());
-	    turf.setAvailableTo(turfDto.getAvailableTo());
-	    turf.setAvailable(turfDto.isAvailable());
-	    turf.setFeatures(turfDto.getFeatures());
-	    turf.setType(turfDto.getType());
-	    turf.setSize(turfDto.getSize());
-	    
-	    Turf savedTurf = turfRepository.save(turf);
+		turf.setCountry(turfDto.getCountry());
+		turf.setState(turfDto.getState());
+		turf.setDistrict(turfDto.getDistrict());
+		turf.setTahsil(turfDto.getTahsil());
+		turf.setCity(turfDto.getCity());
+		turf.setLocalAddress(turfDto.getLocalAddress());
+		turf.setPricePerHour(turfDto.getPricePerHour());
+		turf.setAvailableFrom(turfDto.getAvailableFrom());
+		turf.setAvailableTo(turfDto.getAvailableTo());
+		turf.setAvailable(turfDto.isAvailable());
+		turf.setFeatures(turfDto.getFeatures());
+		turf.setType(turfDto.getType());
+		turf.setSize(turfDto.getSize());
+
+		Turf savedTurf = turfRepository.save(turf);
 		return modelMapper.map(savedTurf, TurfDto.class);
 	}
 
 	@Override
-	public List<BookingDto> getBookingsByTurfId(Integer turfId) {
+	public List<BookingDto> getBookingsByTurfId(Integer turfId,Integer managerId) {
+		Turf turf = turfRepository.findById(turfId)
+				.orElseThrow(() -> new ResourceNotFoundException("Turf", "turf Id", turfId));
+
+		if (turf.getManager().getManagerId().equals(managerId)) {
+			throw new UnauthorizedAccessException("You are not authorized to update this turf.");
+		}
+
 		List<Booking> bookings = bookingRepository.findByTurf_TurfId(turfId);
 		return bookings.stream().map(booking -> modelMapper.map(booking, BookingDto.class))
 				.collect(Collectors.toList());
 	}
 
 	@Override
-	public List<UserDto> getUsersByTurfId(Integer turfId) {
+	public List<UserDto> getUsersByTurfId(Integer turfId, Integer managerId) {
+		Turf turf = turfRepository.findById(turfId)
+				.orElseThrow(() -> new ResourceNotFoundException("Turf", "turf Id", turfId));
+
+		if (turf.getManager().getManagerId().equals(managerId)) {
+			throw new UnauthorizedAccessException("You are not authorized to update this turf.");
+		}
+
 		List<User> users = userRepository.findByBookings_Turf_TurfId(turfId);
 		return users.stream().map(user -> modelMapper.map(user, UserDto.class)).toList();
 	}

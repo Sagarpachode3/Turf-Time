@@ -23,9 +23,9 @@ public interface ManagerService {
 	
 	List<BookingDto> getBookingsByManagerId(Integer managerId);
 	
-	List<BookingDto> getBookingsByTurfId(Integer turfId);
+	List<BookingDto> getBookingsByTurfId(Integer turfId,Integer managerId);
 	
-	List<UserDto> getUsersByTurfId(Integer turfId);
+	List<UserDto> getUsersByTurfId(Integer turfId, Integer managerId);
 	
 	
 }
