@@ -1,6 +1,7 @@
 package com.turf_time.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -26,24 +27,25 @@ public class Booking {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer bookingId;
-	
+
 	@Column(nullable = false)
 	private LocalDateTime bookingTime;
 
-	@ManyToOne
-	@JoinColumn(name = "slotId", referencedColumnName = "slotId", nullable = false)
-	private Slot slot;
+	@Column(nullable = false)
+	private LocalDateTime checkinTime;
+
+	@Column(nullable = false)
+	private LocalDateTime checkoutTime;
 
 	@ManyToOne
-	@JoinColumn(name = "userId", referencedColumnName = "userId", nullable = false)
+	@JoinColumn(name = "user_id", referencedColumnName = "userId", nullable = false)
 	private User user;
-	
-	@ManyToOne
-	@JoinColumn(name = "turfId", referencedColumnName = "turfId")
-	private Turf turf;
 
-	
 	@OneToOne(mappedBy = "booking", cascade = CascadeType.ALL)
 	private Payment payment;
+
+	@ManyToOne
+	@JoinColumn(name = "turf_id", nullable = false)
+	private Turf turf;
 
 }

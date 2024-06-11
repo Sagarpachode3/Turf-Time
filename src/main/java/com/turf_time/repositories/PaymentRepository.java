@@ -3,9 +3,9 @@
  * 
  * import org.springframework.data.jpa.repository.JpaRepository;
  * 
- * import com.turf_time.entities.Admin;
+ * import com.turf_time.entities.Payment;
  * 
- * public interface AdminRepository extends JpaRepository<Admin, Integer> {
+ * public interface PaymentRepository extends JpaRepository<Payment, Integer> {
  * 
  * }
  */

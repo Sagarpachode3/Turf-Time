@@ -30,11 +30,11 @@ public class Feedback {
 	private String comment;
 	
 	@ManyToOne
-	@JoinColumn(name = "user_id", referencedColumnName = "userId")
+	@JoinColumn(name = "user_id",referencedColumnName = "userId", nullable = false)
 	private User user;
 	
 	@ManyToOne
-	@JoinColumn(name = "turf_id",referencedColumnName = "turfId")
+	@JoinColumn(name = "turf_id",referencedColumnName = "turfId", nullable = false)
 	private Turf turf;
 
 }

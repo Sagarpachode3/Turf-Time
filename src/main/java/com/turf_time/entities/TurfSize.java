@@ -1,31 +1,31 @@
 package com.turf_time.entities;
 
-import jakarta.persistence.Column;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
-@Table(name = "admins")
-@Getter
-@Setter
+@Table(name = "turfSize")
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Admin {
+public class TurfSize {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer admin_id;
+	private Integer turfSizeId;
 	
-	@Column(length = 25, nullable = false)
-	private String user_name;
-	
-	@Column(nullable = false)
-	private String password;
+	private String turfSize;
+
+	@ManyToMany(mappedBy = "turfSizes")
+	private List<Turf> turfs;
 }
