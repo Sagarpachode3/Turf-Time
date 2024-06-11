@@ -19,34 +19,40 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UserDto {
 
-	private int userId;
+	private int user_id;
 
 	@NotBlank(message = "First Name is mandatory!")
 	@Size(min = 4, max = 25, message = "First Name length should be between 4 - 25 characters")
-	private String firstName;
+	private String first_name;
 
 	@NotBlank(message = "Last Name is mandatory!")
 	@Size(min = 4, max = 25, message = "Last Name length should be between 4 - 25 characters")
-	private String lastName;
+	private String last_name;
 
 	@NotBlank(message = "Please select any one from options")
 	private String gender;
 
 	@NotBlank(message = "Contact Number can't be empty!")
 	@Pattern(regexp = "\\d{10}", message = "Please enter a valid 10-digit contact number")
-	private String contactNumber;
+	private String contact_number;
 
 	@NotBlank(message = "Email Can't be empty!")
 	@Email(message = "Please enter a valid email id")
+	@Size(max = 50, message = "Email can have a maximum of 50 characters")
 	private String email;
 
 	@NotBlank(message = "Password is mandatory !")
 	@Size(min = 8, max = 16, message = "Password length must be between 8 - 16 charecters.")
-	@Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,16}$", 
-	message = "Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.")
+	@Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,16}$", message = "Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.")
 	@JsonIgnore
 	private String password;
-	
+
 	private List<BookingDto> bookings;
+
+	private Integer activeStatusId;
+
+	private List<Integer> bookingIds;
+
+	private List<Integer> feedbackIds;
 
 }

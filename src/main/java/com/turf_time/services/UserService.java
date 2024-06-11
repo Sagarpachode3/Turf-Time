@@ -1,3 +1,4 @@
+
 package com.turf_time.services;
 
 import java.util.List;
@@ -16,6 +17,6 @@ public interface UserService {
 
 	void deleteUser(Integer userId);
 
-	void updateUserPassword(String email, String pass);
+	void resetUserPassword(String email, String pass);
 
 }

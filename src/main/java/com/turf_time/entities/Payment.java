@@ -1,7 +1,5 @@
 package com.turf_time.entities;
 
-import java.time.LocalDateTime;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,18 +21,21 @@ public class Payment {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer paymentId;
+	private Integer payment_id;
+	
+	@Column(nullable = false)
+    private String paymentGatewayTransactionId;
+	
+	@Column(nullable = false)
+    private String status;
 	
 	@Column(nullable = false)
 	private Double amount;
 	
 	@Column(nullable = false)
-	private LocalDateTime paymentTime;
-	
-	@Column(nullable = false)
 	private String paymentMethod;
 	
 	@OneToOne
-	@JoinColumn(name = "bookingId", referencedColumnName = "bookingId", nullable = false)
+	@JoinColumn(name = "booking_id", nullable = false)
 	private Booking booking;
 }

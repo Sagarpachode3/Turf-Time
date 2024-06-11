@@ -1,10 +1,12 @@
 package com.turf_time.dtos;
 
-import java.time.LocalTime;
+import java.util.List;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,49 +16,36 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TurfDto {
 
-    private Integer turfId;
+	private Integer turfId;
 
-    @NotBlank(message = "Turf name is required")
-    private String turfName;
+	@NotBlank(message = "Turf name is required")
+	@Size(max = 25, message = "Turf name can have a maximum of 25 characters")
+	private String turfName;
 
-    @NotBlank(message = "Country is required")
-    private String country;
+	@NotNull(message = "Price per hour is required")
+	@Positive(message = "Price per hour must be positive")
+	private Double pricePerHour;
 
-    @NotBlank(message = "State is required")
-    private String state;
+	@NotBlank(message = "Contact Number can't be empty!")
+	@Pattern(regexp = "\\d{10}", message = "Please enter a valid 10-digit contact number")
+	private String contact_number;
+	
+	private String features;
 
-    @NotBlank(message = "District is required")
-    private String district;
+	@NotNull(message = "Manager ID is required")
+	private Long managerId;
 
-    @NotBlank(message = "Tahsil is required")
-    private String tahsil;
-    
-    @NotBlank(message = "City is required")
-    private String city;
+	@NotNull(message = "Turf address ID is required")
+	private Long turfAddressId;
 
-    @NotBlank(message = "Local address is required")
-    private String localAddress;
+	private List<Integer> turfSizeIds;
 
-    @NotNull(message = "Price per hour is required")
-    @Positive(message = "Price per hour must be positive")
-    private Double pricePerHour;
+	private List<Integer> turfTypeIds;
 
-    @NotNull(message = "Available from time is required")
-    private LocalTime availableFrom;
+	private Long activeStatusId;
 
-    @NotNull(message = "Available to time is required")
-    private LocalTime availableTo;
+	private List<Integer> feedbackIds;
 
-    @NotNull(message = "Availability status is mandatory")
-    private boolean isAvailable;
-
-    private String features;
-
-    private String type;
-
-    private String size;
-    
-    @NotNull(message = "Manager ID is mandatory")
-    private Integer managerId;
+	private List<Integer> bookingIds;
 
 }
