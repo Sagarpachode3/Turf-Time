@@ -117,6 +117,7 @@ public class ManagerServiceImpl implements ManagerService {
 		manager.setContactNumber(managerDto.getContactNumber());
 		// manager.setEmail(managerDto.getEmail());
 		manager.setPassword(managerDto.getPassword());
+		manager.setActiveStatus(managerDto.getActiveStatusId());
 
 		Manager updatedManager = managerRepository.save(manager);
 		return modelMapper.map(updatedManager, ManagerDto.class);
@@ -156,6 +157,11 @@ public class ManagerServiceImpl implements ManagerService {
 		turf.setPricePerHour(turfDto.getPricePerHour());
 		turf.setContactNumber(turfDto.getContactNumber());
 		turf.setFeatures(turfDto.getFeatures());
+		// turf.setManager(turfDto.getManagerId());
+		turf.setActiveStatus(turfDto.getActiveStatusId());
+		turf.setTurfAddress(turfDto.getTurfAddressId());
+		turf.setTurfSizes(turfDto.getTurfSizeIds());
+		turf.setTurfTypes(turfDto.getTurfTypeIds());
 
 		Turf updatedTurf = turfRepository.save(turf);
 		return modelMapper.map(updatedTurf, TurfDto.class);

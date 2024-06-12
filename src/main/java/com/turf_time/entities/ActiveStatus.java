@@ -21,7 +21,7 @@ public class ActiveStatus {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long activeStatusId;
+	private Integer activeStatusId;
 	
 	private String statusName;
 
