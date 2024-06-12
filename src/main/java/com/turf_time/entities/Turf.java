@@ -15,12 +15,13 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "turfs")
+@Table(name = "turfs", uniqueConstraints = {@UniqueConstraint(columnNames = {"turfName","manager_id"})})
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
