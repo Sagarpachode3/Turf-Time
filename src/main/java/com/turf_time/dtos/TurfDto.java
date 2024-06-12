@@ -28,7 +28,7 @@ public class TurfDto {
 
 	@NotBlank(message = "Contact Number can't be empty!")
 	@Pattern(regexp = "\\d{10}", message = "Please enter a valid 10-digit contact number")
-	private String contact_number;
+	private String contactNumber;
 	
 	private String features;
 

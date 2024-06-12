@@ -47,4 +47,12 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<Map<String, Object>>(errors, HttpStatus.BAD_REQUEST);
 
 	}
+
+	@ExceptionHandler(InvalidCredentialsException.class)
+	public ResponseEntity<ApiResponse> InvalidCredentialsExceptionHandler(InvalidCredentialsException ex) {
+		String message = ex.getMessage();
+		ApiResponse apiResponse = new ApiResponse(message, false);
+		return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.UNAUTHORIZED);
+
+	}
 }
