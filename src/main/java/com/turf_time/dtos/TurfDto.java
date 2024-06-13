@@ -2,6 +2,12 @@ package com.turf_time.dtos;
 
 import java.util.List;
 
+import com.turf_time.entities.ActiveStatus;
+import com.turf_time.entities.Manager;
+import com.turf_time.entities.TurfAddress;
+import com.turf_time.entities.TurfSize;
+import com.turf_time.entities.TurfType;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -33,16 +39,16 @@ public class TurfDto {
 	private String features;
 
 	@NotNull(message = "Manager ID is required")
-	private Long managerId;
+	private Manager managerId;
 
 	@NotNull(message = "Turf address ID is required")
-	private Long turfAddressId;
+	private TurfAddress turfAddressId;
 
-	private List<Integer> turfSizeIds;
+	private List<TurfSize> turfSizeIds;
 
-	private List<Integer> turfTypeIds;
+	private List<TurfType> turfTypeIds;
 
-	private Long activeStatusId;
+	private ActiveStatus activeStatusId;
 
 	private List<Integer> feedbackIds;
 
