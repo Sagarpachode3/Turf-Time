@@ -26,13 +26,13 @@ public class TurfSizeController {
 		return new ResponseEntity<>(createdTurfSize, HttpStatus.CREATED);
 	}
 
-	@GetMapping("/getsize/{id}")
+	@GetMapping("/get/{id}")
 	public ResponseEntity<TurfSizeDto> getTurfSizeById(@PathVariable Integer id) {
 		TurfSizeDto turfSize = turfSizeService.getTurfSizeById(id);
 		return ResponseEntity.ok(turfSize);
 	}
 
-	@GetMapping("/")
+	@GetMapping("/get/")
 	public ResponseEntity<List<TurfSizeDto>> getAllTurfSizes() {
 		List<TurfSizeDto> turfSizes = turfSizeService.getAllTurfSizes();
 		return ResponseEntity.ok(turfSizes);

@@ -1,15 +1,17 @@
-/*
- * package com.turf_time.services;
- * 
- * import com.turf_time.dtos.PaymentDto;
- * 
- * public interface PaymentService {
- * 
- * PaymentDto createPayment(PaymentDto paymentDto);
- * 
- * PaymentDto updatePayment(Integer paymentId, PaymentDto paymentDto);
- * 
- * PaymentDto getPaymentById(Integer paymentId);
- * 
- * void deletePayment(Integer paymentId); }
- */
+package com.turf_time.services;
+
+import com.turf_time.dtos.PaymentDto;
+import java.util.List;
+
+public interface PaymentService {
+	
+	PaymentDto createPayment(PaymentDto paymentDto);
+	
+	PaymentDto getPaymentById(Integer id);
+	
+	List<PaymentDto> getAllPayments();
+
+	PaymentDto updatePayment(Integer id, PaymentDto paymentDto);
+
+	void deletePayment(Integer id);
+}
