@@ -110,7 +110,6 @@ public class UserServiceImpl implements UserService {
 				.orElseThrow(() -> new ResourceNotFoundException("User", "Email Id", email));
 		user.setPassword(pass);
 		userRepository.save(user);
-
 	}
 
 }
