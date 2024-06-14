@@ -36,5 +36,5 @@ public class PaymentDto {
 	private String paymentMethod;
 
 	@NotNull(message = "Booking ID is required")
-	private Long bookingId;
+	private Integer bookingId;
 }

@@ -1,9 +1,9 @@
 package com.turf_time.exceptions;
 
-import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -54,5 +54,13 @@ public class GlobalExceptionHandler {
 		ApiResponse apiResponse = new ApiResponse(message, false);
 		return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.UNAUTHORIZED);
 
+	}
+
+	@ExceptionHandler(DataIntegrityViolationException.class)
+	public ResponseEntity<ApiResponse> DataIntegrityViolationExceptionHandler(
+			DataIntegrityViolationException ex) {
+		String message = ex.getMessage();
+		ApiResponse apiResponse = new ApiResponse(message, false);
+		return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.CONFLICT);
 	}
 }

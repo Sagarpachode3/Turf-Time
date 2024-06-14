@@ -21,7 +21,7 @@ public class Payment {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer payment_id;
+	private Integer paymentId;
 	
 	@Column(nullable = false)
     private String paymentGatewayTransactionId;

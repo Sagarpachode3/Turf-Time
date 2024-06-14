@@ -1,5 +1,9 @@
 package com.turf_time.repositories;
 
-public interface FeedbackRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.turf_time.entities.Feedback;
+
+public interface FeedbackRepository extends JpaRepository<Feedback, Integer> {
 
 }
