@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.turf_time.dtos.TurfAddressDto;
 import com.turf_time.entities.TurfAddress;
@@ -14,6 +15,7 @@ import com.turf_time.repositories.TurfAddressRepository;
 import com.turf_time.services.TurfAddressService;
 
 @Service
+@Transactional
 public class TurdAddressServiceImpl implements TurfAddressService {
 
 	private TurfAddressRepository turfAddressRepository;

@@ -1,12 +1,12 @@
 package com.turf_time.services.impl;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.turf_time.dtos.TurfDto;
 import com.turf_time.entities.Turf;
@@ -16,6 +16,7 @@ import com.turf_time.repositories.TurfRepository;
 import com.turf_time.services.TurfService;
 
 @Service
+@Transactional
 public class TurfServiceImpl implements TurfService {
 
 	private TurfRepository turfRepository;

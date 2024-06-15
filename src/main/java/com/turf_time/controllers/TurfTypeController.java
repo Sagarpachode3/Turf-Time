@@ -58,7 +58,7 @@ public class TurfTypeController {
 		return ResponseEntity.ok(updatedTurfType);
 	}
 
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/delete/{turfTypeId}")
 	public ResponseEntity<ApiResponse> deleteTurfType(@PathVariable Integer turfTypeId) {
 		turfTypeService.deleteTurfType(turfTypeId);
 		return new ResponseEntity<>(new ApiResponse("Turf type deleted Successfully", true), HttpStatus.OK);

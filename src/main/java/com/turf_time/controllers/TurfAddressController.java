@@ -34,7 +34,7 @@ public class TurfAddressController {
 		return ResponseEntity.ok(turfAddress);
 	}
 
-	@GetMapping("/")
+	@GetMapping("/get/")
 	public ResponseEntity<List<TurfAddressDto>> getAllTurfAddresses() {
 		List<TurfAddressDto> turfAddresses = turfAddressService.getAllTurfAddresses();
 		
