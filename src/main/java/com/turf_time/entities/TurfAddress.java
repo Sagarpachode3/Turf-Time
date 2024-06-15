@@ -43,6 +43,6 @@ public class TurfAddress {
 	@Column(nullable = false)
 	private String localAddress;
 	
-	@OneToMany(mappedBy = "turfAddress", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "turfAddress")
     private List<Turf> turfs;
 }

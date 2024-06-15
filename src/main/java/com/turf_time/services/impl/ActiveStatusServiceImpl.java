@@ -1,10 +1,9 @@
 package com.turf_time.services.impl;
 
-import java.util.Optional;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.turf_time.dtos.ActiveStatusDto;
 import com.turf_time.entities.ActiveStatus;
@@ -13,6 +12,7 @@ import com.turf_time.repositories.ActiveStatusRepository;
 import com.turf_time.services.ActiveStatusService;
 
 @Service
+@Transactional
 public class ActiveStatusServiceImpl implements ActiveStatusService {
 
 	private ActiveStatusRepository activeStatusRepository;

@@ -62,7 +62,7 @@ public class Turf {
 	inverseJoinColumns = @JoinColumn(name = "turfTypeId"))
 	private List<TurfType> turfTypes;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "active_status_id")
 	private ActiveStatus activeStatus;
 

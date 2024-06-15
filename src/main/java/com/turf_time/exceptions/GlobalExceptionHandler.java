@@ -16,6 +16,7 @@ import com.turf_time.payloads.ApiResponse;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+	@ExceptionHandler(UserAlreadyExistsException.class)
 	public ResponseEntity<ApiResponse> UserAlreadyExistsExceptionHandler(UserAlreadyExistsException ex) {
 		/*
 		 * Map<String, Object> response = new HashMap<>(); response.put("timestamp",
